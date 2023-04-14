@@ -175,7 +175,7 @@ userRouter.post("/register", async (req, res) => {
       <h1>Email Verification</h1>
       <p>Thank you for signing up. To verify your email address, please click the button below:</p>
        <p>Hi ${firstName} ${lastName},</p>
-      <a href="http://localhost:${process.env.port}/user/verify?token=${verificationToken}" class="btn" style="background-color:#38aa8c">Verify Email Address</a>
+      <a href="https://cautious-pink-flannel-nightgown.cyclic.app/user/verify?token=${verificationToken}" class="btn" style="background-color:#38aa8c">Verify Email Address</a>
       <p>If you did not register on our website, please ignore this email.</p>
       <p>Thank you to signup on our website</p>
       <a href="https://taskplanner-ruby.vercel.app/login" class="btn" style="background-color:#38aa8c">Visit Our Website</a>
@@ -211,6 +211,7 @@ userRouter.get("/verify", async (req, res) => {
     }
 
     user.isVerified = true;
+    user.isAuthenticated = false;
     user.verificationToken = null;
 
     await user.save();
@@ -269,6 +270,7 @@ userRouter.post("/login", async (req, res) => {
           message: "Login successfully",
           token,
           firstName: user[0].firstName,
+          isAuthenticated: true,
         });
       });
     }
