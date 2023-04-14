@@ -1,0 +1,10 @@
+                    First Step
+Register:- we will get data from the user like firstName,lastName,email and password.After that we will send the email verification.
+                    Second Step
+login:If user has been verified their email then He is a user.After that user will fill a form where we will ask the user to enter their email and password.if Both the email and password are valid then user can login to his/her account.if in any cerdatial anything wrong user can not login to his/her account.he will get a message for login success.
+                    Third Step
+sprint : If second step is successful then the user can add sprints.
+
+tasks : in sprint user can add tasks.
+
+only user can see their sprints and tasks,another user should not see them.
