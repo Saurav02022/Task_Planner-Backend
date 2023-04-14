@@ -12,33 +12,27 @@ sprintRouter.post("/create", async (req, res) => {
     sprintName: sprintName,
     creatorId: creatorId,
   });
-
   try {
     if (sprintName && creatorId) {
       if (validateSprintName.length > 0) {
-        res.send({
+        return res.send({
           message: "already sprint exists",
         });
-      } else {
-        const newSprint = new sprintModel({
-          sprintName,
-          creatorId,
-        });
-
-        await newSprint.save();
-
-        res.send({
-          message: "new sprint created successfully",
-        });
       }
-    } else {
+      const newSprint = new sprintModel({
+        sprintName,
+        creatorId,
+      });
+
+      await newSprint.save();
+
       res.send({
-        message: "Please all required field",
+        message: "new sprint created successfully",
       });
     }
-  } catch (e) {
+  } catch (err) {
     res.send({
-      message: e.message,
+      message: err.message,
     });
   }
 });
