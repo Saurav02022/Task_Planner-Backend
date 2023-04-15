@@ -1,10 +1,39 @@
-                    First Step
-Register:- we will get data from the user like firstName,lastName,email and password.After that we will send the email verification.
-                    Second Step
-login:If user has been verified their email then He is a user.After that user will fill a form where we will ask the user to enter their email and password.if Both the email and password are valid then user can login to his/her account.if in any cerdatial anything wrong user can not login to his/her account.he will get a message for login success.
-                    Third Step
-sprint : If second step is successful then the user can add sprints.
+First Step-->Register  
+->we will get firstName,lastName,email and password from the user by a form.After that we will send the verification email to the user if the email address is valid.
 
-tasks : in sprint user can add tasks.
+-> if email address is already exists then he can not use that email address.email address should be unique.
 
-only user can see their sprints and tasks,another user should not see them.
+Second Step-->Email  Verification
+-> User will verify their email Clicking on a button then in userSchema, isVerified will true and verificationToken will null.After than he will redirect on a page where he will see a msg that email verification successfully.
+
+-> If user again click on the verification button then he will redirect on a page where he will see a msg that Already verified Email Please login.
+
+Third Step-->Login
+->user will fill a form where we will ask the user to enter their email and password.If user has been verified their email and cerdatials are matching then user will redirect to homepage.
+
+->if in any cerdatial anything wrong user can not login and will see msg.
+
+Fourth Step:--> sprint
+
+-> "/create" 
+
+if sprintName Exists in our database with same creatorId and same sprintName then user can not use same name,need to change it.
+
+if not then he can create.
+
+--> get All sprint name by creatorId 
+/*
+const taskSchema = mongoose.Schema({
+  taskType: String,
+  sprintName: String, that is why we need this.
+  task: String,
+  statusOfTask: String,
+  creatorId: String,
+});
+*/
+--> get All sprintName data. This is for admin side.
+--> update a particular sprint name
+   -> if sprintName update happen then tasks should also change their sprint name at that same time. 
+--> delete sprintName
+     -> if sprintName delete happen then tasks should also delete at that same time. 
+
