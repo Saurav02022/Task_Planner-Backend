@@ -201,7 +201,7 @@ function HtmlPage(heading, pTag, firstName, lastName) {
       <p>${pTag}</p>
       <p>${firstName && lastName ? "Hi" : ""} ${firstName} ${lastName}</p>
       <p>Thank you to signup on our website</p>
-      <a href="https://taskplanner-ruby.vercel.app/login" class="btn" target="blank"style="background-color:#38aa8c">Visit Our Website</a>
+      <a href="https://taskplanner.saurav02022.vercel.app/login" class="btn" target="blank"style="background-color:#38aa8c">Visit Our Website</a>
     </div>
   </body>
 </html>
